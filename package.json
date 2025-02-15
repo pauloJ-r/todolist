@@ -4,12 +4,13 @@
   "description": "Um aplicato de to do lists",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js"
   },
   "author": "PauloJ-r",
   "license": "ISC",
   "dependencies": {
     "express": "^4.21.2",
+    "nodemon": "^3.1.9",
     "sequelize": "^6.37.5"
   },
   "devDependencies": {
