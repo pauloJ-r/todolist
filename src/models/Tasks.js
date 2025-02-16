@@ -5,9 +5,12 @@ class Tasks extends Model {
         super.init({
             title: DataTypes.STRING,
             status: DataTypes.ENUM('Em andamento', 'Finalizado'),
-            priority: DataTypes.INTEGER, validator: {
-                min: 1,
-                max: 10
+            priority:  {
+                type: DataTypes.INTEGER,
+                validate: {
+                    min: 1,
+                    max: 10
+                }
             },
             description: DataTypes.STRING,
         }, {
