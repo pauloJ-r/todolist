@@ -4,14 +4,14 @@ module.exports = {
     try {
        const {title, status, priority, description} = req.body
        
-       if (!title || !status || !priority || !description) {
-           return res.status(400).json({error: 'Todos os campos são obrigratorios'})
+       if (!title || !status || !priority ) {
+           return res.status(400).json({error: 'Os campos devem estar preenchidos'})
            
        }else if (priority < 1 || priority > 10) {
            return res.status(400).json({error: 'A prioridade deve estar entre 1 e 10'})
 
-       }else if (status !== 'Em andamento' && status !== 'Finalizado') {
-           return res.status(400).json({error: 'O status deve ser "Em andamento" ou "Finalizado"'})
+       }else if (status !== 'Em andamento' && status !== 'Finalizado' && status !== 'Pendente') {
+           return res.status(400).json({error: 'O status deve ser "Em andamento" ou "Finalizado ou "Pendente"'})
        }
 
        const tasks = await Tasks.create({title, status, priority, description})

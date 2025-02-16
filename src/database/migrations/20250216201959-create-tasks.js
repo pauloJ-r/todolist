@@ -15,8 +15,9 @@ module.exports = {
         allowNull: false,
       },
       status: {
-        type: Sequelize.ENUM('Em andamento', 'Finalizado'),
+        type: Sequelize.ENUM("Pendente", "Em andamento", "Finalizado"),
         allowNull: false,
+        defaultValue: "Pendente",
       },
       priority: {
         type: Sequelize.INTEGER,
@@ -28,7 +29,7 @@ module.exports = {
       },
       description: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       created_at: {
         type: Sequelize.DATE,
