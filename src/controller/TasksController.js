@@ -36,6 +36,20 @@ module.exports = {
     try {
        const { id } = req.params;
        const { title, status, priority, description } = req.body;
+       
+       if (!title || !status || !priority) {
+         return res.status(400).json({ error: 'Os campos title, status e priority devem estar preenchidos' });
+     }
+
+     
+     if (priority < 1 || priority > 10) {
+         return res.status(400).json({ error: 'A prioridade deve estar entre 1 e 10' });
+     }
+
+     
+     if (status !== 'Em andamento' && status !== 'Finalizado' && status !== 'Pendente') {
+         return res.status(400).json({ error: 'O status deve ser "Em andamento", "Finalizado" ou "Pendente"' });
+     }
 
        const tasks = await Tasks.findByPk(id);
        if (!tasks) {
