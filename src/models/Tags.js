@@ -17,6 +17,10 @@ class Tags extends Model {
             tableName: 'tags'
         });
     }
+    static associate(models) {
+        this.belongsToMany(models.Tasks, { through: models.TasksTags, foreignKey: 'tag_id', as : 'tasks' });
+        }
+  
 }
 
 module.exports = Tags;
