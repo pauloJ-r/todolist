@@ -10,7 +10,7 @@ class Tasks extends Model {
         },
         status: {
         type: DataTypes.ENUM("Pendente", "Em andamento", "Finalizado"),
-          defaultValue: "Pedente",
+          defaultValue: "Pendente",
           allowNull: false,
         },
         priority: {
@@ -28,12 +28,17 @@ class Tasks extends Model {
       },
       {
         sequelize,
-        modelName: "Tasks", // Nome do modelo
-        tableName: "tasks", // Nome da tabela no banco
-        timestamps: true, // Cria `createdAt` e `updatedAt` automaticamente
+        modelName: "Tasks", 
+        tableName: "tasks",
+        timestamps: true, 
+        
       }
     );
   }
+  static associate(models) {
+    this.belongsToMany(models.Tags, { through: models.TasksTags, foreignKey: "task_id", as : 'tags' });
+    }
+  
 }
 
 module.exports = Tasks;
