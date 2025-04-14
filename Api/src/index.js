@@ -2,7 +2,7 @@ const express = require('express')
 const routes = require('./routes/routes')
 const app = express()
 const port = 3000
-const cors = require('./midlewares/corsMidlewares')
+const cors = require('./middlewares/corsMiddlewares')
 
 require('./database')
 
