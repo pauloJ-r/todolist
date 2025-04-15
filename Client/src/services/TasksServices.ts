@@ -1,20 +1,21 @@
-import { ITags } from "../@types/Tags";
+import { ITask } from "../@types/Tasks";
 import api from "../configs/api";
 
-export async function getTags(): Promise<ITags[]> {
-    const response = await api.get("/tags");
-    return response.data;
-}
-export async function createTags(name: string, color: string): Promise<ITags> {
-    const response = await api.post("/tags", { name, color });
+export async function getTasks(): Promise<ITask[]> {
+    const response = await api.get("/tasks");
     return response.data;
 }
 
-export async function updateTags(id: number, name: string, color: string): Promise<ITags> {
-    const response = await api.put(`/tags/${id}`, { name, color });
+export async function createTasks(title: string, status: string, priority: number, description: string, tags_id: number): Promise<ITask> {
+    const response = await api.post("/tasks", { title, status, priority, description, tags_id });
     return response.data;
 }
 
-export async function deleteTags(id: number): Promise<void> {
-    await api.delete(`/tags/${id}`);
+export async function updateTasks(id: number, title: string, status: string, priority: number, description: string, tags_id: number): Promise<ITask> {
+    const response = await api.put(`/tasks/${id}`, { title, status, priority, description, tags_id });
+    return response.data;
 }
+
+export async function deleteTasks(id: number): Promise<void> {
+    await api.delete(`/tasks/${id}`);
+}   
