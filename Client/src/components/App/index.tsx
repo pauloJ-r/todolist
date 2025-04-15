@@ -1,6 +1,9 @@
 import {BrowserRouter} from 'react-router-dom'
 import { getTags } from '../../services/TasksServices'
 import {  useEffect } from 'react'
+import Routes from '../Routes'
+import style from './styles.module.css'
+import { Header } from '../Layout'
 
 function App() {
     useEffect(() => {
@@ -8,10 +11,9 @@ function App() {
     })
     return (
         <BrowserRouter>
-        <div>
-           <div>
-            <h1>Tags</h1>
-           </div>
+        <div className={style.wrapper}>
+            <Header />
+            <Routes />
         </div>
         </BrowserRouter>
     )
