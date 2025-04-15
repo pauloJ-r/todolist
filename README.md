@@ -1,6 +1,6 @@
 # To-Do List - Task Management API
 
-Este projeto é uma API desenvolvida em **Node.js** utilizando **Express** e **Sequelize** com **PostgreSQL** como banco de dados. A API permite o gerenciamento de tarefas (*Tasks*), que podem conter etiquetas (*Tags*), e está integrada a um sistema de usuários (*Users*).
+Este projeto é uma API desenvolvida em **Node.js** utilizando **Express** e **Sequelize** com **PostgreSQL** como banco de dados. A API permite o gerenciamento de tarefas (*Tasks*), que podem conter etiquetas (*Tags*).
 
 ## 🚀 Tecnologias Utilizadas
 
