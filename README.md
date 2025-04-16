@@ -11,6 +11,7 @@ Este projeto é uma API desenvolvida em **Node.js** utilizando **Express** e **S
 - **React.ts**
 - **Zod**
 - **Axios**
+- **Docker**
 
 ## 📦 Instalação
 
