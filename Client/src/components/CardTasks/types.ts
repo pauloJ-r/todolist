@@ -1,8 +1,8 @@
 import { ITask } from "../../@types/Tasks";
 
 interface ICardTasksProps {
-    data: ITask;
-    onDelete(data: ITask): void;
+    tasks: ITask;
+    onDelete(tasks: ITask): void;
 }
 
 export type { ICardTasksProps };

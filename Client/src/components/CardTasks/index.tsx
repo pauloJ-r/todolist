@@ -4,22 +4,22 @@ import edit from "../../assets/icons/edit.svg";
 import { Link } from "react-router-dom";
 import { ICardTasksProps } from "./types";
 
-export default function CardTasks({ data, onDelete }: ICardTasksProps) {
+export default function CardTasks({ tasks, onDelete }: ICardTasksProps) {
     return (
         <div className={styles.Cardtasks}>
         <div>
           <div>
-            <strong>{data.title}</strong>{" "}
-            {data.tags_name && <small>{data.tags_name}</small>}
+            <strong>{tasks.title}</strong>{" "}
+            {tasks.tags_name && <small>{tasks.tags_name}</small>}
           </div>
-          {data.description && <span>{data.description}</span>}
-          {data.status && <span>{data.status}</span>}
+          {tasks.description && <span>{tasks.description}</span>}
+          {tasks.status && <span>{tasks.status}</span>}
         </div>
         <div>
-          <Link to={`/tasks/${data.id}`}>
+          <Link to={`/tasks/${tasks.id}`}>
             <img src={edit} alt="Editar" />
           </Link>
-          <img src={trash} alt="Excluir" onClick={() => onDelete(data)} />
+          <img src={trash} alt="Excluir" onClick={() => onDelete(tasks)} />
         </div>
       </div>
     );
