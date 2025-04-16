@@ -1,4 +1,5 @@
 const Tasks = require('../models/Tasks')
+const Tags = require('../models/Tags')
 module.exports = {
     async CreateTasks(req, res) {
     try {
@@ -23,15 +24,22 @@ module.exports = {
        return res.status(500).json({ error: 'Erro interno do servidor' });
    }
    },
-   async GetTasks (req, res) {
+   async GetTasks(req, res) {
     try {
-        const tasks = await Tasks.findAll()
-        return res.status(200).json(tasks)
+      const tasks = await Tasks.findAll({
+        include: {
+          model: Tags,
+          as: 'tags',
+          attributes: ['name', 'color']
+        }
+      });
+  
+      return res.status(200).json(tasks);
     } catch (error) {
-        console.error('Erro ao buscar tarefas:', error);
-        return res.status(500).json({ error: 'Erro interno do servidor' });
+      console.error('Erro ao buscar tarefas:', error);
+      return res.status(500).json({ error: 'Erro interno do servidor' });
     }
-   },
+  },
    async UpdateTasks(req, res) {
     try {
        const { id } = req.params;
